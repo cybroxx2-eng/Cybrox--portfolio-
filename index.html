@@ -29,6 +29,7 @@
         .section-title { font-size: 2.2rem; margin-bottom: 30px; color: var(--accent); font-weight: 800; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; transition: 0.3s ease; }
+        .card:hover { border-color: var(--accent); transform: translateY(-5px); }
         .card img { width: 100%; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05); display: block; height: auto; max-height: 400px; object-fit: cover; }
         .card h3 { margin-bottom: 10px; font-size: 1.3rem; font-weight: 700; }
         .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 15px; }
@@ -36,6 +37,8 @@
         .btn-list { display: flex; flex-direction: column; gap: 12px; }
         .btn { background: rgba(124, 124, 255, 0.1); border: 1px solid var(--border); color: var(--text); text-decoration: none; padding: 18px; border-radius: 12px; text-align: center; font-weight: 600; transition: 0.3s; display: block; }
         .btn:hover { background: var(--accent); color: white; border-color: var(--accent); }
+        .btn b { color: var(--accent); transition: 0.3s; }
+        .btn:hover b { color: white; }
         
         footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--border); margin-top: 40px; }
         @media (max-width: 768px) { h1 { font-size: 2.8rem; } }
@@ -63,28 +66,4 @@
             </div>
         </section>
 
-        <section id="threads">
-            <h2 class="section-title">Featured Threads</h2>
-            <div class="btn-list">
-                <a href="https://x.com/CybroX33/status/1873117565860409344" target="_blank" class="btn">🧵 Milestone Thread: $PPUMP Growth</a>
-                <a href="https://x.com/CybroX33/status/1876227631023157248" target="_blank" class="btn">🧵 Ambassador Insights: $Banana Cult</a>
-                <a href="https://x.com/CybroX33/status/1889278241904394240" target="_blank" class="btn">🧵 Web3 Community Strategy Analysis</a>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="btn-list">
-                <a href="mailto:cybroxx2@gmail.com" class="btn">📧 Email Me</a>
-                <a href="https://x.com/CybroX33" target="_blank" class="btn">🐦 Twitter / X</a>
-                <a href="https://t.me/Cybroxarc" target="_blank" class="btn">✈️ Telegram</a>
-            </div>
-        </section>
-
-        <footer>
-            <p style="color: var(--muted); margin-bottom: 10px;">Discord: cybroxx3</p>
-            <p style="font-size: 0.8rem; opacity: 0.5;">© 2025 Cybrox Portfolio</p>
-        </footer>
-    </div>
-</body>
-</html>
+        <section
