@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybrox | Culture Strategist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <title>Cybrox | Culture Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #f8fafc; /* Clean, light professional background */
-            --accent: #4f46e5; /* Sophisticated Indigo */
+            --primary-grad: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --aurora-grad: linear-gradient(215deg, #4facfe 0%, #00f2fe 100%);
+            --bg: #ffffff;
             --text: #0f172a;
             --muted: #64748b;
-            --glass: rgba(255, 255, 255, 0.8);
-            --border: rgba(0, 0, 0, 0.08);
-            --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+            --glass: rgba(255, 255, 255, 0.7);
+            --border: rgba(99, 102, 241, 0.15);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,167 +21,247 @@
         body { 
             background: var(--bg); 
             color: var(--text); 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
+            font-family: 'Outfit', sans-serif; 
             line-height: 1.6;
-            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-            background-size: 30px 30px;
+            overflow-x: hidden;
         }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 0 25px; }
+        /* Animated Aurora Background */
+        .aurora-bg {
+            position: fixed;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.05), transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.05), transparent 40%);
+            z-index: -1;
+            animation: rotate 30s linear infinite;
+        }
 
-        /* Navigation */
-        nav { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: var(--text); letter-spacing: -1px; }
-        .logo span { color: var(--accent); }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-        /* Hero */
-        .hero { text-align: center; padding: 60px 0 100px; }
-        .pfp { width: 140px; height: 140px; border-radius: 50%; border: 4px solid #fff; box-shadow: var(--shadow); margin-bottom: 25px; object-fit: cover; }
-        h1 { font-size: 4rem; font-weight: 800; letter-spacing: -3px; line-height: 1; margin-bottom: 20px; color: #1e293b; }
-        
-        /* Terminal Typing Effect ( Indigo Theme ) */
-        .typewriter-container { display: flex; justify-content: center; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 30px; }
+
+        /* Fancy Hero Section */
+        .hero { 
+            text-align: center; 
+            padding: 120px 0 80px; 
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+        }
+
+        .pfp-orbit {
+            position: relative;
+            width: 220px; height: 220px;
+            margin: 0 auto 40px;
+            padding: 10px;
+            border-radius: 50%;
+            background: var(--primary-grad);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.3);
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        @keyframes pulse { 
+            0%, 100% { transform: scale(1); box-shadow: 0 20px 50px rgba(99, 102, 241, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 30px 60px rgba(236, 72, 153, 0.4); }
+        }
+
+        .pfp { width: 100%; height: 100%; border-radius: 50%; border: 6px solid #fff; object-fit: cover; }
+
+        h1 { 
+            font-family: 'Syncopate', sans-serif; 
+            font-size: 5rem; font-weight: 700; 
+            letter-spacing: -5px; line-height: 0.8; margin-bottom: 25px;
+            background: var(--primary-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
         .typewriter { 
-            font-family: monospace; font-size: 1.1rem; color: var(--accent); font-weight: 600;
-            border-right: 3px solid var(--accent); white-space: nowrap; overflow: hidden; width: 0;
-            animation: typing 3s steps(40, end) forwards, blink .75s step-end infinite;
+            font-size: 1.4rem; font-weight: 600; color: var(--muted); letter-spacing: 2px;
+            border-right: 3px solid #6366f1; white-space: nowrap; overflow: hidden; width: 0;
+            margin: 0 auto; animation: typing 3.5s steps(40, end) forwards, blink .75s step-end infinite;
         }
+
         @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--accent); } }
+        @keyframes blink { from, to { border-color: transparent } 50% { border-color: #6366f1; } }
 
-        section { padding: 80px 0; border-top: 1px solid var(--border); }
-        .section-title { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 40px; }
-
-        /* About Glass Card */
-        .about-card { 
-            background: var(--glass); backdrop-filter: blur(10px); 
-            padding: 40px; border-radius: 32px; border: 1px solid #fff; box-shadow: var(--shadow);
+        /* Content Sections */
+        section { padding: 100px 0; border-top: 1px solid var(--border); }
+        .section-header { 
+            font-family: 'Syncopate', sans-serif; font-size: 0.8rem; 
+            font-weight: 700; color: #ec4899; letter-spacing: 5px; margin-bottom: 50px; 
         }
-        .about-card h2 { font-size: 1.8rem; margin-bottom: 20px; letter-spacing: -1px; }
 
-        /* Fancy Expandable Proof of Work */
-        .pow-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        .pow-item { 
-            background: #fff; border: 1px solid var(--border); border-radius: 20px; 
-            padding: 25px; cursor: pointer; transition: 0.3s; overflow: hidden; max-height: 80px;
+        /* About Box - Imaginary Design */
+        .glass-box { 
+            background: var(--glass); backdrop-filter: blur(20px); 
+            padding: 60px; border-radius: 50px; border: 1px solid #fff;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.05);
+            position: relative; overflow: hidden;
         }
-        .pow-item.active { max-height: 600px; border-color: var(--accent); box-shadow: var(--shadow); }
-        .pow-header { display: flex; justify-content: space-between; align-items: center; }
-        .pow-header h3 { font-size: 1.2rem; font-weight: 700; }
-        .pow-header .icon { color: var(--accent); font-weight: 800; transition: 0.3s; }
-        .pow-item.active .icon { transform: rotate(45deg); }
+        .glass-box::before {
+            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(99, 102, 241, 0.05), transparent);
+            transform: rotate(45deg); animation: shine 10s infinite;
+        }
+        @keyframes shine { 0% { left: -100%; } 100% { left: 100%; } }
+
+        /* Proof of Work - Fixed Image Display */
+        .pow-stack { display: grid; gap: 25px; }
+        .pow-card { 
+            background: #fff; border: 1px solid var(--border); border-radius: 30px; 
+            padding: 35px; cursor: pointer; transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            overflow: hidden; max-height: 100px;
+        }
+        .pow-card.active { max-height: 1200px; border-color: #6366f1; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
         
-        .pow-content { margin-top: 30px; opacity: 0; transition: 0.4s; text-align: center; }
-        .pow-item.active .pow-content { opacity: 1; }
-        .pow-content img { max-width: 100%; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .pow-title { display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 1.5rem; }
+        .pow-title span { background: var(--primary-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* Project Insights */
-        .insight-btn { 
-            display: block; padding: 25px; background: #fff; border: 1px solid var(--border);
-            border-radius: 20px; text-decoration: none; color: var(--text); margin-bottom: 15px;
+        .pow-body { margin-top: 40px; opacity: 0; transition: 0.6s; }
+        .pow-card.active .pow-body { opacity: 1; }
+        .pow-body img { 
+            width: 100%; height: auto; display: block; 
+            border-radius: 20px; margin-bottom: 30px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+        }
+
+        /* Storytelling Proof Buttons */
+        .story-btn { 
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 35px; background: #fff; border: 1px solid var(--border);
+            border-radius: 30px; text-decoration: none; color: var(--text); 
+            margin-bottom: 20px; transition: 0.4s;
+        }
+        .story-btn:hover { 
+            background: var(--primary-grad); color: #fff; transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+        .story-btn b { font-size: 1.6rem; letter-spacing: -1px; }
+
+        /* Contact Grid */
+        .contact-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .contact-link { 
+            padding: 30px; border-radius: 25px; text-align: center; font-weight: 800;
+            text-decoration: none; font-family: 'Syncopate', sans-serif; font-size: 0.9rem;
             transition: 0.3s;
         }
-        .insight-btn:hover { border-color: var(--accent); transform: scale(1.02); box-shadow: var(--shadow); }
-        .insight-btn b { color: var(--accent); display: block; font-size: 1.1rem; }
-        .insight-btn span { font-size: 0.9rem; color: var(--muted); }
+        .contact-link.prime { background: var(--text); color: #fff; }
+        .contact-link.sub { border: 2px solid var(--text); color: var(--text); }
+        .contact-link:hover { transform: scale(1.05); filter: brightness(1.2); }
 
-        /* Contact Section */
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .contact-link { 
-            padding: 20px; border-radius: 16px; text-align: center; font-weight: 700;
-            text-decoration: none; transition: 0.3s;
+        footer { text-align: center; padding: 100px 0 50px; opacity: 0.5; font-size: 0.8rem; letter-spacing: 2px; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            .glass-box { padding: 30px; }
         }
-        .contact-link.primary { background: var(--accent); color: #fff; }
-        .contact-link.secondary { background: #fff; color: var(--text); border: 1px solid var(--border); }
-        .contact-link:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2); }
-
-        footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <nav><a href="#" class="logo">CYBROX<span>.</span></a></nav>
+    <div class="aurora-bg"></div>
 
+    <div class="container">
+        
         <section class="hero">
-            <img src="pfp.jpg" alt="Cybrox" class="pfp">
-            <h1>Cybrox</h1>
-            <div class="typewriter-container">
-                <div class="typewriter">BUILDING ECOSYSTEMS OF BELIEVERS.</div>
+            <div class="pfp-orbit">
+                <img src="pfp.jpg" alt="Cybrox" class="pfp">
             </div>
+            <h1>CYBROX</h1>
+            <div class="typewriter">CULTURE ARCHITECT & STRATEGIST</div>
         </section>
 
         <section id="about">
-            <p class="section-title">Personnel Brief</p>
-            <div class="about-card">
-                <h2>I don't just manage communities; I build ecosystems of believers.</h2>
-                <p style="color: var(--muted); margin-bottom: 25px;">I specialize in turning complex Web3 visions into relatable stories that drive organic growth. I focus on building loyalty that survives market volatility—creating movements that last.</p>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.9rem;">
-                    <div><strong>• Community Architecture</strong><br>Engagement loops & retention</div>
-                    <div><strong>• Strategic Storytelling</strong><br>Narrative design & high-impact content</div>
-                    <div><strong>• Cult Marketing</strong><br>Organic outreach & movement growth</div>
-                    <div><strong>• Moderation Expertise</strong><br>High-stakes energy management</div>
+            <p class="section-header">// THE ARCHIVE</p>
+            <div class="glass-box">
+                <h2 style="font-size: 3rem; font-weight: 800; line-height: 0.9; margin-bottom: 40px; letter-spacing: -2px;">
+                    I BUILD ECOSYSTEMS OF BELIEVERS.
+                </h2>
+                <p style="font-size: 1.2rem; color: var(--muted); margin-bottom: 40px;">
+                    In the fast-moving world of Web3, I turn complex visions into relatable stories that drive organic, long-term growth. Creating loyalty that survives market volatility.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                    <div style="border-left: 4px solid #6366f1; padding-left: 20px;">
+                        <h4 style="font-family: 'Syncopate'; font-size: 0.7rem;">STRATEGY</h4>
+                        <p style="font-size: 0.9rem;">Community Architecture & Retention</p>
+                    </div>
+                    <div style="border-left: 4px solid #a855f7; padding-left: 20px;">
+                        <h4 style="font-family: 'Syncopate'; font-size: 0.7rem;">NARRATIVE</h4>
+                        <p style="font-size: 0.9rem;">Storytelling & High-Impact Content</p>
+                    </div>
+                    <div style="border-left: 4px solid #ec4899; padding-left: 20px;">
+                        <h4 style="font-family: 'Syncopate'; font-size: 0.7rem;">ENERGY</h4>
+                        <p style="font-size: 0.9rem;">High-Stakes Moderation & Cult Building</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="work">
-            <p class="section-title">Proof of Work</p>
-            <div class="pow-grid">
-                <div class="pow-item" onclick="this.classList.toggle('active')">
-                    <div class="pow-header"><h3>Ambassador Programs</h3><span class="icon">+</span></div>
-                    <div class="pow-content"><img src="banana.jpg" alt="Banana"><p>Leading outreach and cult culture for $banana.</p></div>
+            <p class="section-header">// PROOF OF WORK</p>
+            <div class="pow-stack">
+                <div class="pow-card" onclick="this.classList.toggle('active')">
+                    <div class="pow-title"><span>Ambassador Programs</span> <i>+</i></div>
+                    <div class="pow-body">
+                        <img src="banana.jpg" alt="Banana">
+                        <p>Leading outreach and growth strategies for the $banana movement.</p>
+                    </div>
                 </div>
-                <div class="pow-item" onclick="this.classList.toggle('active')">
-                    <div class="pow-header"><h3>Moderation: $PPUMP</h3><span class="icon">+</span></div>
-                    <div class="pow-content"><img src="admin1.jpg" alt="PPUMP"><p>Core Admin for Visionary Raiders.</p></div>
+                <div class="pow-card" onclick="this.classList.toggle('active')">
+                    <div class="pow-title"><span>Moderation: $PPUMP</span> <i>+</i></div>
+                    <div class="pow-body">
+                        <img src="admin1.jpg" alt="PPUMP">
+                        <p>Core Admin for Visionary Raiders. Managing engagement and community standards.</p>
+                    </div>
                 </div>
-                <div class="pow-item" onclick="this.classList.toggle('active')">
-                    <div class="pow-header"><h3>Moderation: Suncoin</h3><span class="icon">+</span></div>
-                    <div class="pow-content"><img src="admin2.jpg" alt="Suncoin"><p>Official team support and moderation.</p></div>
+                <div class="pow-card" onclick="this.classList.toggle('active')">
+                    <div class="pow-title"><span>Moderation: Suncoin</span> <i>+</i></div>
+                    <div class="pow-body">
+                        <img src="admin2.jpg" alt="Suncoin">
+                        <p>Official team support and community moderation.</p>
+                    </div>
                 </div>
-                <div class="pow-item" onclick="this.classList.toggle('active')">
-                    <div class="pow-header"><h3>Moderation: Just A Odd Guy</h3><span class="icon">+</span></div>
-                    <div class="pow-content"><img src="admin3.jpg" alt="Odd Guy"><p>Active moderator ensuring healthy discussion.</p></div>
+                <div class="pow-card" onclick="this.classList.toggle('active')">
+                    <div class="pow-title"><span>Moderation: KatsCo</span> <i>+</i></div>
+                    <div class="pow-body">
+                        <img src="admin4.jpg" alt="KatsCo">
+                        <p>Leadership role in community management and growth.</p>
+                    </div>
                 </div>
-                <div class="pow-item" onclick="this.classList.toggle('active')">
-                    <div class="pow-header"><h3>Moderation: KatsCo</h3><span class="icon">+</span></div>
-                    <div class="pow-content"><img src="admin4.jpg" alt="KatsCo"><p>Leadership role in community management.</p></div>
-                </div>
-                <div class="pow-item" onclick="this.classList.toggle('active')">
-                    <div class="pow-header"><h3>Strategy & Partnerships</h3><span class="icon">+</span></div>
-                    <div class="pow-content"><img src="strategy.jpg" alt="Strategy"><p>Collaborating with founders on growth ideas.</p></div>
+                <div class="pow-card" onclick="this.classList.toggle('active')">
+                    <div class="pow-title"><span>Ecosystem Strategy</span> <i>+</i></div>
+                    <div class="pow-body">
+                        <img src="strategy.jpg" alt="Strategy">
+                        <p>Collaborating with founders on core community values and long-term retention.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="insights">
-            <p class="section-title">Project Insights</p>
-            <a href="https://x.com/CybroX33/status/1970921621058879507" target="_blank" class="insight-btn">
-                <b>Scaling Organic Movements</b>
-                <span>Detailed breakdown of community coordination mechanics.</span>
+        <section id="storytelling">
+            <p class="section-header">// STORYTELLING PROOF</p>
+            <a href="https://x.com/CybroX33/status/1970921621058879507" target="_blank" class="story-btn">
+                <b>SCALING MOVEMENTS</b>
+                <span>VIEW THREAD →</span>
             </a>
-            <a href="https://x.com/CybroX33/status/1987082251901808778" target="_blank" class="insight-btn">
-                <b>The Blueprint for Retention</b>
-                <span>Analysis of "sticky" culture and member loyalty.</span>
+            <a href="https://x.com/CybroX33/status/1987082251901808778" target="_blank" class="story-btn">
+                <b>RETENTION BLUEPRINT</b>
+                <span>VIEW THREAD →</span>
             </a>
-            <a href="https://x.com/CybroX33/status/1974031786020569351" target="_blank" class="insight-btn">
-                <b>Strategic Architecture</b>
-                <span>How to structure a high-stakes ecosystem.</span>
+            <a href="https://x.com/CybroX33/status/1974031786020569351" target="_blank" class="story-btn">
+                <b>STRATEGIC ARCHITECTURE</b>
+                <span>VIEW THREAD →</span>
             </a>
         </section>
 
-        <section id="contact">
-            <p class="section-title">Contact</p>
-            <div class="contact-grid">
-                <a href="https://t.me/Cybroxarc" target="_blank" class="contact-link primary">Telegram</a>
-                <a href="https://x.com/CybroX33" target="_blank" class="contact-link secondary">X / Twitter</a>
-                <a href="mailto:cybroxx2@gmail.com" class="contact-link secondary">Email Me</a>
+        <section id="uplink">
+            <p class="section-header">// ESTABLISH UPLINK</p>
+            <div class="contact-wrap">
+                <a href="https://t.me/Cybroxarc" target="_blank" class="contact-link prime">TELEGRAM</a>
+                <a href="https://x.com/CybroX33" target="_blank" class="contact-link sub">X.COM</a>
+                <a href="mailto:cybroxx2@gmail.com" class="contact-link sub">EMAIL</a>
             </div>
         </section>
 
         <footer>
-            <p>Discord: cybroxx3 | © 2025 Cybrox Portfolio</p>
+            CYBROX // DIGITAL ARCHIVE 2025 // DISCORD: cybroxx3
         </footer>
     </div>
 
