@@ -3,97 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybrox | Web3 Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Cybrox | System Archive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Plus+Jakarta+Sans:wght@400;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0b0f1a;
-            --gradient: linear-gradient(135deg, #0b0f1a 0%, #1a1f36 50%, #3b2f7f 100%);
-            --card: #12182b;
-            --accent: #7c7cff;
-            --text: #e6e9f0;
-            --muted: #9aa0b4;
-            --border: rgba(124, 124, 255, 0.2);
+            --bg: #03050a;
+            --accent: #00f2ff;
+            --accent-glow: rgba(0, 242, 255, 0.4);
+            --text: #ffffff;
+            --muted: #6b7280;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); background: var(--gradient); background-attachment: fixed; color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        nav { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; font-size: 1.4rem; color: var(--text); text-decoration: none; }
-        .logo span { color: var(--accent); }
-        .hero { text-align: center; padding: 60px 0 40px; }
-        .pfp { width: 130px; height: 130px; border-radius: 50%; border: 3px solid var(--accent); margin-bottom: 20px; object-fit: cover; box-shadow: 0 0 25px rgba(124, 124, 255, 0.3); }
-        h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -1px; }
-        .tagline { color: var(--muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; }
-        section { padding: 40px 0; }
-        .section-title { font-size: 2.2rem; margin-bottom: 30px; color: var(--accent); font-weight: 800; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; transition: 0.3s ease; }
-        .card:hover { border-color: var(--accent); transform: translateY(-5px); }
-        .card img { width: 100%; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05); display: block; height: auto; max-height: 400px; object-fit: cover; }
-        .card h3 { margin-bottom: 10px; font-size: 1.3rem; font-weight: 700; }
-        .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 15px; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
         
-        .btn-list { display: flex; flex-direction: column; gap: 12px; }
-        .btn { background: rgba(124, 124, 255, 0.1); border: 1px solid var(--border); color: var(--text); text-decoration: none; padding: 18px; border-radius: 12px; text-align: center; font-weight: 600; transition: 0.3s; display: block; }
-        .btn:hover { background: var(--accent); color: white; border-color: var(--accent); }
-        .btn b { color: var(--accent); transition: 0.3s; }
-        .btn:hover b { color: white; }
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Custom Cursor */
+        #cursor {
+            width: 20px; height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+            box-shadow: 0 0 20px var(--accent);
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 30px; }
+
+        /* Hero */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         
-        footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--border); margin-top: 40px; }
-        @media (max-width: 768px) { h1 { font-size: 2.8rem; } }
+        .pfp-wrap { position: relative; margin-bottom: 40px; }
+        .pfp { width: 150px; height: 150px; border-radius: 20px; object-fit: cover; border: 1px solid var(--accent); transform: rotate(-5deg); transition: 0.5s; }
+        .pfp-wrap:hover .pfp { transform: rotate(0deg) scale(1.1); box-shadow: 0 0 40px var(--accent-glow); }
+
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 5rem; font-weight: 700; letter-spacing: -4px; line-height: 0.9; }
+        
+        /* Terminal Typing Effect */
+        .typewriter { font-family: 'Space Grotesk', sans-serif; color: var(--accent); font-size: 1.2rem; margin-top: 20px; border-right: 2px solid var(--accent); white-space: nowrap; overflow: hidden; width: 0; animation: typing 3.5s steps(40, end) forwards, blink .75s step-end infinite; }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--accent); } }
+
+        /* Sections */
+        section { padding: 100px 0; border-top: 1px solid var(--border); }
+        .section-tag { font-family: 'Space Grotesk', sans-serif; color: var(--accent); font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: block; }
+
+        .glass-panel { 
+            background: var(--glass); backdrop-filter: blur(20px); 
+            border: 1px solid var(--border); border-radius: 30px; 
+            padding: 50px; position: relative; overflow: hidden;
+        }
+
+        /* Fancy Cards */
+        .pow-grid { display: grid; gap: 20px; }
+        .pow-card { 
+            background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+            border-radius: 20px; padding: 30px; transition: 0.4s; position: relative;
+        }
+        .pow-card:hover { background: rgba(0, 242, 255, 0.05); border-color: var(--accent); transform: translateY(-5px); }
+        .pow-card .content { display: none; margin-top: 20px; animation: fadeIn 0.5s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .pow-card.active .content { display: block; }
+        .pow-card h3 { font-size: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .pow-card h3::after { content: 'OPEN'; font-size: 0.6rem; border: 1px solid var(--accent); padding: 2px 8px; border-radius: 4px; color: var(--accent); }
+
+        /* Button Glow */
+        .glow-btn { 
+            display: block; padding: 25px; background: transparent; 
+            border: 1px solid var(--border); color: #fff; border-radius: 20px;
+            text-decoration: none; font-weight: 700; font-size: 1.2rem;
+            transition: 0.4s; margin-bottom: 15px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .glow-btn:hover { border-color: var(--accent); color: var(--accent); box-shadow: inset 0 0 20px var(--accent-glow); }
+
+        footer { text-align: center; padding: 50px 0; font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; color: var(--muted); }
+
     </style>
 </head>
 <body>
+
+    <div id="cursor"></div>
+
     <div class="container">
-        <nav><a href="#" class="logo">CYBROX<span>.</span></a></nav>
-        
         <section class="hero">
-            <img src="pfp.jpg" alt="Cybrox" class="pfp">
-            <h1>Cybrox</h1>
-            <p class="tagline">Turning complex Web3 ideas into simple, relatable messages that drive authentic community growth.</p>
+            <div class="pfp-wrap">
+                <img src="pfp.jpg" alt="Cybrox" class="pfp">
+            </div>
+            <h1>CYBROX</h1>
+            <div class="typewriter">SYSTEM STATUS: BUILDING ECOSYSTEMS OF BELIEVERS...</div>
         </section>
 
-        <section id="work">
-            <h2 class="section-title">Proof of Work</h2>
-            <div class="grid">
-                <div class="card"><img src="banana.jpg" alt="Ambassador Proof"><h3>Ambassador Programs</h3><p>First ambassador for the $banana cult. Leading outreach and growth strategies.</p></div>
-                <div class="card"><img src="admin1.jpg" alt="Moderation PPUMP"><h3>Moderation: $PPUMP</h3><p>Core Admin for Visionary Raiders. Managing engagement and community standards.</p></div>
-                <div class="card"><img src="admin2.jpg" alt="Moderation Suncoin"><h3>Moderation: Suncoin</h3><p>Official team support and moderation for the Suncoin official team.</p></div>
-                <div class="card"><img src="admin3.jpg" alt="Moderation Odd Guy"><h3>Moderation: Just A Odd Guy</h3><p>Active moderator ensuring healthy discussion and spam prevention.</p></div>
-                <div class="card"><img src="admin4.jpg" alt="Moderation KatsCo"><h3>Moderation: KatsCo</h3><p>Leadership role in community management, focusing on member growth.</p></div>
-                <div class="card"><img src="strategy.jpg" alt="Strategy & Partnerships"><h3>Strategy & Partnerships</h3><p>Collaborating with founders on core community values and growth ideas.</p></div>
+        <section id="about">
+            <span class="section-tag">// DATA ARCHIVE</span>
+            <div class="glass-panel">
+                <p style="font-size: 1.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 30px;">
+                    I turn complex project visions into relatable stories that drive organic growth.
+                </p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div>
+                        <p style="color: var(--muted); font-size: 0.9rem;">I focus on building "cult-like" engagement that survives market volatility—creating loyalty that lasts longer than a pump.</p>
+                    </div>
+                    <div style="font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; color: var(--accent);">
+                        [01] COMMUNITY ARCHITECTURE<br>
+                        [02] STRATEGIC STORYTELLING<br>
+                        [03] CULT GROWTH MARKETING<br>
+                        [04] HIGH-STAKES MODERATION
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="threads">
-            <h2 class="section-title">Past Project Insights</h2>
-            <div class="btn-list">
-                <a href="https://x.com/CybroX33/status/1873117565860409344" target="_blank" class="btn">
-                    🧵 <b>$PPUMP Campaign:</b> Strategic breakdown of community growth and raid coordination for Visionary Raiders.
-                </a>
-                <a href="https://x.com/CybroX33/status/1876227631023157248" target="_blank" class="btn">
-                    🧵 <b>$Banana Ambassador Work:</b> Analysis of the "cult" culture and how we drove early organic engagement.
-                </a>
-                <a href="https://x.com/CybroX33/status/1889278241904394240" target="_blank" class="btn">
-                    🧵 <b>Web3 Community Building:</b> My personal framework for scaling Telegram groups and maintaining member retention.
-                </a>
+        <section id="pow">
+            <span class="section-tag">// OPERATIONAL RECORDS</span>
+            <div class="pow-grid">
+                <div class="pow-card" onclick="this.classList.toggle('active')">
+                    <h3>Ambassador Programs</h3>
+                    <div class="content">
+                        <img src="banana.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                        <p>Leading outreach and cult culture for $banana.</p>
+                    </div>
+                </div>
+                <div class="pow-card" onclick="this.classList.toggle('active')">
+                    <h3>Moderation Protocol</h3>
+                    <div class="content">
+                        <img src="admin1.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                        <p>Managing high-stakes energy for $PPUMP and Suncoin.</p>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <section id="insights">
+            <span class="section-tag">// PROJECT INTELLIGENCE</span>
+            <a href="https://x.com/CybroX33/status/1970921621058879507" target="_blank" class="glow-btn">SCALING ORGANIC MOVEMENTS</a>
+            <a href="https://x.com/CybroX33/status/1987082251901808778" target="_blank" class="glow-btn">COMMUNITY RETENTION BLUEPRINT</a>
+            <a href="https://x.com/CybroX33/status/1974031786020569351" target="_blank" class="glow-btn">STRATEGIC ARCHITECTURE</a>
         </section>
 
         <section id="contact">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="btn-list">
-                <a href="mailto:cybroxx2@gmail.com" class="btn">📧 Email Me (Business Inquiries)</a>
-                <a href="https://x.com/CybroX33" target="_blank" class="btn">🐦 DM me on Twitter / X</a>
-                <a href="https://t.me/Cybroxarc" target="_blank" class="btn">✈️ Message on Telegram</a>
+            <span class="section-tag">// UPLINK</span>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <a href="https://t.me/Cybroxarc" target="_blank" class="glow-btn" style="background: var(--accent); color: #000;">TELEGRAM</a>
+                <a href="https://x.com/CybroX33" target="_blank" class="glow-btn">X / TWITTER</a>
             </div>
         </section>
 
         <footer>
-            <p style="color: var(--muted); margin-bottom: 10px;">Discord: cybroxx3</p>
-            <p style="font-size: 0.8rem; opacity: 0.5;">© 2025 Cybrox Portfolio</p>
+            CYBROX v2.0.25 // SECURE ACCESS GRANTED
         </footer>
     </div>
+
+    <script>
+        // Custom Cursor Logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Add "Click" effect to cursor
+        document.addEventListener('mousedown', () => cursor.style.transform = 'scale(0.8)');
+        document.addEventListener('mouseup', () => cursor.style.transform = 'scale(1)');
+    </script>
 </body>
 </html>
