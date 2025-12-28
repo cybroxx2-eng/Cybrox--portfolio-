@@ -33,60 +33,52 @@
         .card img { width: 100%; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05); display: block; height: auto; max-height: 400px; object-fit: cover; }
         .card h3 { margin-bottom: 10px; font-size: 1.3rem; font-weight: 700; }
         .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 15px; }
+        
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 10px; }
+        .contact-btn { background: rgba(124, 124, 255, 0.1); border: 1px solid var(--border); color: var(--text); text-decoration: none; padding: 15px; border-radius: 12px; text-align: center; font-weight: 600; transition: 0.3s; }
+        .contact-btn:hover { background: var(--accent); color: white; border-color: var(--accent); }
+        
         footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--border); margin-top: 40px; }
-        .contact-links a { color: var(--text); text-decoration: none; font-weight: 600; padding: 10px 24px; border: 1px solid var(--border); border-radius: 8px; margin: 10px; display: inline-block; transition: 0.3s; }
         @media (max-width: 768px) { h1 { font-size: 2.8rem; } .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <div class="container">
         <nav><a href="#" class="logo">CYBROX<span>.</span></a></nav>
+        
         <section class="hero">
             <img src="pfp.jpg" alt="Cybrox" class="pfp">
             <h1>Cybrox</h1>
             <p class="tagline">Turning complex Web3 ideas into simple, relatable messages that drive authentic community growth.</p>
         </section>
+
         <section id="work">
             <h2 class="section-title">Proof of Work</h2>
             <div class="grid">
-                <div class="card">
-                    <img src="banana.jpg" alt="Ambassador Proof">
-                    <h3>Ambassador Programs</h3>
-                    <p>First ambassador for the $banana cult. Leading outreach and growth strategies.</p>
-                </div>
-                <div class="card">
-                    <img src="admin1.jpg" alt="Moderation PPUMP">
-                    <h3>Moderation: $PPUMP</h3>
-                    <p>Core Admin for Visionary Raiders. Managing engagement and community standards.</p>
-                </div>
-                <div class="card">
-                    <img src="admin2.jpg" alt="Moderation Suncoin">
-                    <h3>Moderation: Suncoin</h3>
-                    <p>Providing 24/7 support and moderation for the Suncoin official team.</p>
-                </div>
-                <div class="card">
-                    <img src="admin3.jpg" alt="Moderation Odd Guy">
-                    <h3>Moderation: Just A Odd Guy</h3>
-                    <p>Active moderator ensuring healthy discussion and spam prevention.</p>
-                </div>
-                <div class="card">
-                    <img src="admin4.jpg" alt="Moderation KatsCo">
-                    <h3>Moderation: KatsCo</h3>
-                    <p>Leadership role in community management, focusing on member growth.</p>
-                </div>
-                <div class="card">
-                    <img src="strategy.jpg" alt="Strategy & Partnerships">
-                    <h3>Strategy & Partnerships</h3>
-                    <p>Collaborating with founders on core community values and growth ideas.</p>
-                </div>
+                <div class="card"><img src="banana.jpg"><h3>Ambassador Programs</h3><p>First ambassador for the $banana cult. Leading outreach and growth strategies.</p></div>
+                <div class="card"><img src="admin1.jpg"><h3>Moderation: $PPUMP</h3><p>Core Admin for Visionary Raiders. Managing engagement and community standards.</p></div>
+                <div class="card"><img src="admin2.jpg"><h3>Moderation: Suncoin</h3><p>Providing 24/7 support and moderation for the Suncoin official team.</p></div>
+                <div class="card"><img src="admin3.jpg"><h3>Moderation: Just A Odd Guy</h3><p>Active moderator ensuring healthy discussion and spam prevention.</p></div>
+                <div class="card"><img src="admin4.jpg"><h3>Moderation: KatsCo</h3><p>Leadership role in community management, focusing on member growth.</p></div>
+                <div class="card"><img src="strategy.jpg"><h3>Strategy & Partnerships</h3><p>Collaborating with founders on core community values and growth ideas.</p></div>
             </div>
         </section>
-        <footer>
-            <div class="contact-links">
-                <a href="https://x.com/CybroX33" target="_blank">Twitter/X</a>
-                <a href="https://t.me/Cybroxarc" target="_blank">Telegram</a>
+
+        <section id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <a href="mailto:cybroxx2@gmail.com" class="contact-btn">📧 Email Me</a>
+                <a href="https://x.com/CybroX33/status/1970921621058879507" target="_blank" class="contact-btn">🧵 Featured Thread 1</a>
+                <a href="https://x.com/CybroX33/status/1974031786020569351" target="_blank" class="contact-btn">🧵 Featured Thread 2</a>
+                <a href="https://x.com/CybroX33/status/1987082251901808778" target="_blank" class="contact-btn">🧵 Featured Thread 3</a>
+                <a href="https://x.com/CybroX33" target="_blank" class="contact-btn">🐦 Twitter / X</a>
+                <a href="https://t.me/Cybroxarc" target="_blank" class="contact-btn">✈️ Telegram</a>
             </div>
-            <p style="margin-top: 20px; color: var(--muted);">Discord: cybroxx3</p>
+        </section>
+
+        <footer>
+            <p style="color: var(--muted); margin-bottom: 10px;">Discord: cybroxx3</p>
+            <p style="font-size: 0.8rem; opacity: 0.5;">© 2025 Cybrox Portfolio</p>
         </footer>
     </div>
 </body>
