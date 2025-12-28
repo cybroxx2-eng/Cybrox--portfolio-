@@ -3,183 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybrox | System Archive</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Plus+Jakarta+Sans:wght@400;800&display=swap" rel="stylesheet">
+    <title>Cybrox | Culture Strategist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #03050a;
-            --accent: #00f2ff;
-            --accent-glow: rgba(0, 242, 255, 0.4);
-            --text: #ffffff;
-            --muted: #6b7280;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.08);
+            --bg: #f8fafc; /* Clean, light professional background */
+            --accent: #4f46e5; /* Sophisticated Indigo */
+            --text: #0f172a;
+            --muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.8);
+            --border: rgba(0, 0, 0, 0.08);
+            --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             background: var(--bg); 
             color: var(--text); 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            overflow-x: hidden;
-            background-image: 
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 50px 50px;
+            line-height: 1.6;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 30px 30px;
         }
 
-        /* Custom Cursor */
-        #cursor {
-            width: 20px; height: 20px;
-            background: var(--accent);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: difference;
-            transition: transform 0.1s ease;
-            box-shadow: 0 0 20px var(--accent);
-        }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 25px; }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 30px; }
+        /* Navigation */
+        nav { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: var(--text); letter-spacing: -1px; }
+        .logo span { color: var(--accent); }
 
         /* Hero */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero { text-align: center; padding: 60px 0 100px; }
+        .pfp { width: 140px; height: 140px; border-radius: 50%; border: 4px solid #fff; box-shadow: var(--shadow); margin-bottom: 25px; object-fit: cover; }
+        h1 { font-size: 4rem; font-weight: 800; letter-spacing: -3px; line-height: 1; margin-bottom: 20px; color: #1e293b; }
         
-        .pfp-wrap { position: relative; margin-bottom: 40px; }
-        .pfp { width: 150px; height: 150px; border-radius: 20px; object-fit: cover; border: 1px solid var(--accent); transform: rotate(-5deg); transition: 0.5s; }
-        .pfp-wrap:hover .pfp { transform: rotate(0deg) scale(1.1); box-shadow: 0 0 40px var(--accent-glow); }
-
-        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 5rem; font-weight: 700; letter-spacing: -4px; line-height: 0.9; }
-        
-        /* Terminal Typing Effect */
-        .typewriter { font-family: 'Space Grotesk', sans-serif; color: var(--accent); font-size: 1.2rem; margin-top: 20px; border-right: 2px solid var(--accent); white-space: nowrap; overflow: hidden; width: 0; animation: typing 3.5s steps(40, end) forwards, blink .75s step-end infinite; }
+        /* Terminal Typing Effect ( Indigo Theme ) */
+        .typewriter-container { display: flex; justify-content: center; }
+        .typewriter { 
+            font-family: monospace; font-size: 1.1rem; color: var(--accent); font-weight: 600;
+            border-right: 3px solid var(--accent); white-space: nowrap; overflow: hidden; width: 0;
+            animation: typing 3s steps(40, end) forwards, blink .75s step-end infinite;
+        }
         @keyframes typing { from { width: 0 } to { width: 100% } }
         @keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--accent); } }
 
-        /* Sections */
-        section { padding: 100px 0; border-top: 1px solid var(--border); }
-        .section-tag { font-family: 'Space Grotesk', sans-serif; color: var(--accent); font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: block; }
+        section { padding: 80px 0; border-top: 1px solid var(--border); }
+        .section-title { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 40px; }
 
-        .glass-panel { 
-            background: var(--glass); backdrop-filter: blur(20px); 
-            border: 1px solid var(--border); border-radius: 30px; 
-            padding: 50px; position: relative; overflow: hidden;
+        /* About Glass Card */
+        .about-card { 
+            background: var(--glass); backdrop-filter: blur(10px); 
+            padding: 40px; border-radius: 32px; border: 1px solid #fff; box-shadow: var(--shadow);
         }
+        .about-card h2 { font-size: 1.8rem; margin-bottom: 20px; letter-spacing: -1px; }
 
-        /* Fancy Cards */
-        .pow-grid { display: grid; gap: 20px; }
-        .pow-card { 
-            background: rgba(255,255,255,0.02); border: 1px solid var(--border);
-            border-radius: 20px; padding: 30px; transition: 0.4s; position: relative;
+        /* Fancy Expandable Proof of Work */
+        .pow-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        .pow-item { 
+            background: #fff; border: 1px solid var(--border); border-radius: 20px; 
+            padding: 25px; cursor: pointer; transition: 0.3s; overflow: hidden; max-height: 80px;
         }
-        .pow-card:hover { background: rgba(0, 242, 255, 0.05); border-color: var(--accent); transform: translateY(-5px); }
-        .pow-card .content { display: none; margin-top: 20px; animation: fadeIn 0.5s ease forwards; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .pow-item.active { max-height: 600px; border-color: var(--accent); box-shadow: var(--shadow); }
+        .pow-header { display: flex; justify-content: space-between; align-items: center; }
+        .pow-header h3 { font-size: 1.2rem; font-weight: 700; }
+        .pow-header .icon { color: var(--accent); font-weight: 800; transition: 0.3s; }
+        .pow-item.active .icon { transform: rotate(45deg); }
+        
+        .pow-content { margin-top: 30px; opacity: 0; transition: 0.4s; text-align: center; }
+        .pow-item.active .pow-content { opacity: 1; }
+        .pow-content img { max-width: 100%; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 
-        .pow-card.active .content { display: block; }
-        .pow-card h3 { font-size: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-        .pow-card h3::after { content: 'OPEN'; font-size: 0.6rem; border: 1px solid var(--accent); padding: 2px 8px; border-radius: 4px; color: var(--accent); }
-
-        /* Button Glow */
-        .glow-btn { 
-            display: block; padding: 25px; background: transparent; 
-            border: 1px solid var(--border); color: #fff; border-radius: 20px;
-            text-decoration: none; font-weight: 700; font-size: 1.2rem;
-            transition: 0.4s; margin-bottom: 15px; text-align: center;
-            position: relative; overflow: hidden;
+        /* Project Insights */
+        .insight-btn { 
+            display: block; padding: 25px; background: #fff; border: 1px solid var(--border);
+            border-radius: 20px; text-decoration: none; color: var(--text); margin-bottom: 15px;
+            transition: 0.3s;
         }
-        .glow-btn:hover { border-color: var(--accent); color: var(--accent); box-shadow: inset 0 0 20px var(--accent-glow); }
+        .insight-btn:hover { border-color: var(--accent); transform: scale(1.02); box-shadow: var(--shadow); }
+        .insight-btn b { color: var(--accent); display: block; font-size: 1.1rem; }
+        .insight-btn span { font-size: 0.9rem; color: var(--muted); }
 
-        footer { text-align: center; padding: 50px 0; font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; color: var(--muted); }
+        /* Contact Section */
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .contact-link { 
+            padding: 20px; border-radius: 16px; text-align: center; font-weight: 700;
+            text-decoration: none; transition: 0.3s;
+        }
+        .contact-link.primary { background: var(--accent); color: #fff; }
+        .contact-link.secondary { background: #fff; color: var(--text); border: 1px solid var(--border); }
+        .contact-link:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2); }
 
+        footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <div id="cursor"></div>
-
     <div class="container">
+        <nav><a href="#" class="logo">CYBROX<span>.</span></a></nav>
+
         <section class="hero">
-            <div class="pfp-wrap">
-                <img src="pfp.jpg" alt="Cybrox" class="pfp">
+            <img src="pfp.jpg" alt="Cybrox" class="pfp">
+            <h1>Cybrox</h1>
+            <div class="typewriter-container">
+                <div class="typewriter">BUILDING ECOSYSTEMS OF BELIEVERS.</div>
             </div>
-            <h1>CYBROX</h1>
-            <div class="typewriter">SYSTEM STATUS: BUILDING ECOSYSTEMS OF BELIEVERS...</div>
         </section>
 
         <section id="about">
-            <span class="section-tag">// DATA ARCHIVE</span>
-            <div class="glass-panel">
-                <p style="font-size: 1.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 30px;">
-                    I turn complex project visions into relatable stories that drive organic growth.
-                </p>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                    <div>
-                        <p style="color: var(--muted); font-size: 0.9rem;">I focus on building "cult-like" engagement that survives market volatility—creating loyalty that lasts longer than a pump.</p>
-                    </div>
-                    <div style="font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; color: var(--accent);">
-                        [01] COMMUNITY ARCHITECTURE<br>
-                        [02] STRATEGIC STORYTELLING<br>
-                        [03] CULT GROWTH MARKETING<br>
-                        [04] HIGH-STAKES MODERATION
-                    </div>
+            <p class="section-title">Personnel Brief</p>
+            <div class="about-card">
+                <h2>I don't just manage communities; I build ecosystems of believers.</h2>
+                <p style="color: var(--muted); margin-bottom: 25px;">I specialize in turning complex Web3 visions into relatable stories that drive organic growth. I focus on building loyalty that survives market volatility—creating movements that last.</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.9rem;">
+                    <div><strong>• Community Architecture</strong><br>Engagement loops & retention</div>
+                    <div><strong>• Strategic Storytelling</strong><br>Narrative design & high-impact content</div>
+                    <div><strong>• Cult Marketing</strong><br>Organic outreach & movement growth</div>
+                    <div><strong>• Moderation Expertise</strong><br>High-stakes energy management</div>
                 </div>
             </div>
         </section>
 
-        <section id="pow">
-            <span class="section-tag">// OPERATIONAL RECORDS</span>
+        <section id="work">
+            <p class="section-title">Proof of Work</p>
             <div class="pow-grid">
-                <div class="pow-card" onclick="this.classList.toggle('active')">
-                    <h3>Ambassador Programs</h3>
-                    <div class="content">
-                        <img src="banana.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
-                        <p>Leading outreach and cult culture for $banana.</p>
-                    </div>
+                <div class="pow-item" onclick="this.classList.toggle('active')">
+                    <div class="pow-header"><h3>Ambassador Programs</h3><span class="icon">+</span></div>
+                    <div class="pow-content"><img src="banana.jpg" alt="Banana"><p>Leading outreach and cult culture for $banana.</p></div>
                 </div>
-                <div class="pow-card" onclick="this.classList.toggle('active')">
-                    <h3>Moderation Protocol</h3>
-                    <div class="content">
-                        <img src="admin1.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
-                        <p>Managing high-stakes energy for $PPUMP and Suncoin.</p>
-                    </div>
+                <div class="pow-item" onclick="this.classList.toggle('active')">
+                    <div class="pow-header"><h3>Moderation: $PPUMP</h3><span class="icon">+</span></div>
+                    <div class="pow-content"><img src="admin1.jpg" alt="PPUMP"><p>Core Admin for Visionary Raiders.</p></div>
+                </div>
+                <div class="pow-item" onclick="this.classList.toggle('active')">
+                    <div class="pow-header"><h3>Moderation: Suncoin</h3><span class="icon">+</span></div>
+                    <div class="pow-content"><img src="admin2.jpg" alt="Suncoin"><p>Official team support and moderation.</p></div>
+                </div>
+                <div class="pow-item" onclick="this.classList.toggle('active')">
+                    <div class="pow-header"><h3>Moderation: Just A Odd Guy</h3><span class="icon">+</span></div>
+                    <div class="pow-content"><img src="admin3.jpg" alt="Odd Guy"><p>Active moderator ensuring healthy discussion.</p></div>
+                </div>
+                <div class="pow-item" onclick="this.classList.toggle('active')">
+                    <div class="pow-header"><h3>Moderation: KatsCo</h3><span class="icon">+</span></div>
+                    <div class="pow-content"><img src="admin4.jpg" alt="KatsCo"><p>Leadership role in community management.</p></div>
+                </div>
+                <div class="pow-item" onclick="this.classList.toggle('active')">
+                    <div class="pow-header"><h3>Strategy & Partnerships</h3><span class="icon">+</span></div>
+                    <div class="pow-content"><img src="strategy.jpg" alt="Strategy"><p>Collaborating with founders on growth ideas.</p></div>
                 </div>
             </div>
         </section>
 
         <section id="insights">
-            <span class="section-tag">// PROJECT INTELLIGENCE</span>
-            <a href="https://x.com/CybroX33/status/1970921621058879507" target="_blank" class="glow-btn">SCALING ORGANIC MOVEMENTS</a>
-            <a href="https://x.com/CybroX33/status/1987082251901808778" target="_blank" class="glow-btn">COMMUNITY RETENTION BLUEPRINT</a>
-            <a href="https://x.com/CybroX33/status/1974031786020569351" target="_blank" class="glow-btn">STRATEGIC ARCHITECTURE</a>
+            <p class="section-title">Project Insights</p>
+            <a href="https://x.com/CybroX33/status/1970921621058879507" target="_blank" class="insight-btn">
+                <b>Scaling Organic Movements</b>
+                <span>Detailed breakdown of community coordination mechanics.</span>
+            </a>
+            <a href="https://x.com/CybroX33/status/1987082251901808778" target="_blank" class="insight-btn">
+                <b>The Blueprint for Retention</b>
+                <span>Analysis of "sticky" culture and member loyalty.</span>
+            </a>
+            <a href="https://x.com/CybroX33/status/1974031786020569351" target="_blank" class="insight-btn">
+                <b>Strategic Architecture</b>
+                <span>How to structure a high-stakes ecosystem.</span>
+            </a>
         </section>
 
         <section id="contact">
-            <span class="section-tag">// UPLINK</span>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <a href="https://t.me/Cybroxarc" target="_blank" class="glow-btn" style="background: var(--accent); color: #000;">TELEGRAM</a>
-                <a href="https://x.com/CybroX33" target="_blank" class="glow-btn">X / TWITTER</a>
+            <p class="section-title">Contact</p>
+            <div class="contact-grid">
+                <a href="https://t.me/Cybroxarc" target="_blank" class="contact-link primary">Telegram</a>
+                <a href="https://x.com/CybroX33" target="_blank" class="contact-link secondary">X / Twitter</a>
+                <a href="mailto:cybroxx2@gmail.com" class="contact-link secondary">Email Me</a>
             </div>
         </section>
 
         <footer>
-            CYBROX v2.0.25 // SECURE ACCESS GRANTED
+            <p>Discord: cybroxx3 | © 2025 Cybrox Portfolio</p>
         </footer>
     </div>
 
-    <script>
-        // Custom Cursor Logic
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        // Add "Click" effect to cursor
-        document.addEventListener('mousedown', () => cursor.style.transform = 'scale(0.8)');
-        document.addEventListener('mouseup', () => cursor.style.transform = 'scale(1)');
-    </script>
 </body>
 </html>
