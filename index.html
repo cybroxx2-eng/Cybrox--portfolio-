@@ -49,7 +49,7 @@
         .skill-node h4 { font-family: 'Syncopate'; font-size: 0.75rem; color: var(--primary); margin-bottom: 15px; }
         .skill-node p { color: #94a3b8; font-size: 1.1rem; }
 
-        /* PROOF OF WORK */
+        /* RECORDS */
         .pow-stack { display: grid; gap: 25px; }
         .pow-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 40px; padding: 40px; cursor: pointer; transition: 0.5s; overflow: hidden; max-height: 110px; }
         .pow-card.active { max-height: 1200px; border-color: var(--secondary); background: rgba(255,255,255,0.05); box-shadow: var(--glow); }
@@ -58,11 +58,11 @@
         .pow-card.active .pow-body { opacity: 1; }
         .pow-body img { width: 100%; border-radius: 25px; margin-bottom: 30px; border: 1px solid var(--border); }
 
-        /* STORYTELLING */
+        /* PROOF */
         .story-card { display: flex; align-items: center; justify-content: space-between; padding: 40px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 30px; text-decoration: none; color: #fff; margin-bottom: 20px; transition: 0.4s; }
         .story-card:hover { background: linear-gradient(90deg, var(--primary), var(--secondary)); transform: translateX(15px); box-shadow: var(--glow); border-color: transparent; }
 
-        /* CONTACT SECTION */
+        /* CONTACT */
         .pitch-message { font-family: 'Syncopate', sans-serif; font-size: clamp(1.2rem, 4vw, 2rem); text-align: center; margin-bottom: 40px; background: linear-gradient(to right, #fff, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -1px; line-height: 1.2; }
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
         .contact-link { padding: 30px; border-radius: 25px; text-align: center; font-weight: 900; text-decoration: none; font-family: 'Syncopate', sans-serif; font-size: 0.8rem; transition: 0.3s; }
@@ -75,15 +75,14 @@
         @media (max-width: 768px) { .hero { padding: 80px 0; } .pfp-wrap { width: 220px; height: 220px; } h1 { letter-spacing: -2px; } }
     </style>
 </head>
-<body>
+<body onclick="initAudio()">
 
     <canvas id="stars"></canvas>
 
     <div class="container">
-        
         <section class="hero">
             <div class="pfp-wrap">
-                <img src="pfp.jpg" alt="Cybrox" class="pfp" id="tilt">
+                <img src="pfp.jpg" alt="Cybrox" class="pfp" id="tilt" onmouseenter="playHover()">
             </div>
             <h1>CYBROX</h1>
             <div class="tagline">Culture Architect</div>
@@ -120,19 +119,19 @@
         <section id="records">
             <p class="section-header">// 02 _ OPERATIONAL_RECORDS</p>
             <div class="pow-stack">
-                <div class="pow-card" onclick="this.classList.toggle('active')">
+                <div class="pow-card" onclick="togglePOW(this)">
                     <div class="pow-header"><span>Ambassador: $Banana</span> <i>+</i></div>
                     <div class="pow-body"><img src="banana.jpg"><p>Leading outreach and movement mechanics for the $banana ecosystem.</p></div>
                 </div>
-                <div class="pow-card" onclick="this.classList.toggle('active')">
+                <div class="pow-card" onclick="togglePOW(this)">
                     <div class="pow-header"><span>Admin: $PPUMP</span> <i>+</i></div>
                     <div class="pow-body"><img src="admin1.jpg"><p>Core Admin for Visionary Raiders. Managing daily engagement and raid strategy.</p></div>
                 </div>
-                <div class="pow-card" onclick="this.classList.toggle('active')">
+                <div class="pow-card" onclick="togglePOW(this)">
                     <div class="pow-header"><span>Mod: Suncoin & KatsCo</span> <i>+</i></div>
                     <div class="pow-body"><img src="admin2.jpg"><p>Strategic moderation and conflict resolution for official project channels.</p></div>
                 </div>
-                <div class="pow-card" onclick="this.classList.toggle('active')">
+                <div class="pow-card" onclick="togglePOW(this)">
                     <div class="pow-header"><span>10+ Global Collaborations</span> <i>+</i></div>
                     <div class="pow-body"><img src="strategy.jpg"><p>Strategic advisory across 10+ Web3 initiatives focusing on long-term retention.</p></div>
                 </div>
@@ -141,9 +140,9 @@
 
         <section id="proof">
             <p class="section-header">// 03 _ STORYTELLING_PROOF</p>
-            <a href="https://x.com/CybroX33/status/1970921621058879507" target="_blank" class="story-card"><b>SCALING MOVEMENTS</b><span>ANALYSIS →</span></a>
-            <a href="https://x.com/CybroX33/status/1987082251901808778" target="_blank" class="story-card"><b>RETENTION BLUEPRINT</b><span>STRATEGY →</span></a>
-            <a href="https://x.com/CybroX33/status/1974031786020569351" target="_blank" class="story-card"><b>ARCHITECTURAL CORE</b><span>CASE STUDY →</span></a>
+            <a href="https://x.com/CybroX33/status/1970921621058879507" target="_blank" class="story-card" onmouseenter="playHover()"><b>SCALING MOVEMENTS</b><span>ANALYSIS →</span></a>
+            <a href="https://x.com/CybroX33/status/1987082251901808778" target="_blank" class="story-card" onmouseenter="playHover()"><b>RETENTION BLUEPRINT</b><span>STRATEGY →</span></a>
+            <a href="https://x.com/CybroX33/status/1974031786020569351" target="_blank" class="story-card" onmouseenter="playHover()"><b>ARCHITECTURAL CORE</b><span>CASE STUDY →</span></a>
         </section>
 
         <section id="contact">
@@ -151,9 +150,9 @@
             <div class="pitch-message">THE PERFECT PERSON FOR YOUR PROJECT'S CULTURAL EVOLUTION.</div>
             <h2 style="text-align: center; font-family: 'Syncopate'; font-size: 0.8rem; letter-spacing: 5px; margin-bottom: 40px; color: var(--primary);">CONTACT ME</h2>
             <div class="contact-grid">
-                <a href="https://t.me/Cybroxarc" target="_blank" class="contact-link prime">TELEGRAM</a>
-                <a href="https://x.com/CybroX33" target="_blank" class="contact-link sub">X / TWITTER</a>
-                <a href="mailto:cybroxx2@gmail.com" class="contact-link sub">EMAIL</a>
+                <a href="https://t.me/Cybroxarc" target="_blank" class="contact-link prime" onmouseenter="playHover()">TELEGRAM</a>
+                <a href="https://x.com/CybroX33" target="_blank" class="contact-link sub" onmouseenter="playHover()">X / TWITTER</a>
+                <a href="mailto:cybroxx2@gmail.com" class="contact-link sub" onmouseenter="playHover()">EMAIL</a>
             </div>
         </section>
 
@@ -161,6 +160,25 @@
     </div>
 
     <script>
+        // AUDIO ENGINE
+        const hoverSfx = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
+        const clickSfx = new Audio('https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3');
+        hoverSfx.volume = 0.2;
+        clickSfx.volume = 0.4;
+
+        function playHover() { hoverSfx.currentTime = 0; hoverSfx.play().catch(e => {}); }
+        function playClick() { clickSfx.currentTime = 0; clickSfx.play().catch(e => {}); }
+        
+        function initAudio() {
+            hoverSfx.play().then(() => hoverSfx.pause());
+            clickSfx.play().then(() => clickSfx.pause());
+        }
+
+        function togglePOW(el) {
+            el.classList.toggle('active');
+            playClick();
+        }
+
         // PFP TILT
         const tilt = document.getElementById('tilt');
         document.addEventListener('mousemove', (e) => {
