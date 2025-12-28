@@ -16,7 +16,10 @@
             --border: rgba(124, 124, 255, 0.2);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); background: var(--gradient); background-attachment: fixed; color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+        body { 
+            background: var(--bg); background: var(--gradient); background-attachment: fixed;
+            color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6;
+        }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         nav { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-weight: 800; font-size: 1.4rem; color: var(--text); text-decoration: none; }
@@ -33,13 +36,11 @@
         .card img { width: 100%; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05); display: block; }
         .card h3 { margin-bottom: 10px; font-size: 1.3rem; font-weight: 700; }
         .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 15px; }
-        .thread-link { color: var(--accent); text-decoration: none; display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
         .skills-grid { display: flex; flex-wrap: wrap; gap: 12px; }
         .skill-tag { background: rgba(124, 124, 255, 0.1); border: 1px solid var(--border); padding: 10px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; }
         footer { text-align: center; padding: 80px 0; border-top: 1px solid var(--border); margin-top: 40px; }
         .contact-links { display: flex; justify-content: center; gap: 20px; margin: 25px 0; flex-wrap: wrap; }
         .contact-links a { color: var(--text); text-decoration: none; font-weight: 600; padding: 10px 24px; border: 1px solid var(--border); border-radius: 8px; transition: 0.3s; }
-        .contact-links a:hover { background: var(--accent); color: white; border-color: var(--accent); }
         @media (max-width: 768px) { h1 { font-size: 2.8rem; } .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -47,7 +48,7 @@
     <div class="container">
         <nav><a href="#" class="logo">CYBROX<span>.</span></a></nav>
         <section class="hero">
-            <img src="https://i.postimg.cc/85M02G7w/1000021833.jpg" alt="Cybrox" class="pfp">
+            <img src="pfp.jpg" alt="Cybrox" class="pfp">
             <h1>Cybrox</h1>
             <p class="tagline">Turning complex Web3 ideas into simple, relatable messages that drive authentic community growth.</p>
         </section>
@@ -55,63 +56,52 @@
             <h2 class="section-title">Proof of Work</h2>
             <div class="grid">
                 <div class="card">
-                    <img src="https://i.postimg.cc/mD8F1bVz/1000062224.jpg" alt="Banana Ambassador">
+                    <img src="banana.jpg" alt="Banana Ambassador">
                     <h3>Ambassador Programs</h3>
                     <p>First ambassador for the $banana cult. Leading outreach and growth strategies.</p>
                 </div>
                 <div class="card">
-                    <img src="https://i.postimg.cc/vB25X5V3/1000062229.jpg" alt="PPUMP Admin">
+                    <img src="admin1.jpg" alt="PPUMP Admin">
                     <h3>Moderation: $PPUMP</h3>
                     <p>Core Admin for Visionary Raiders. Managing engagement and safe community standards.</p>
                 </div>
                 <div class="card">
-                    <img src="https://i.postimg.cc/xT3x05N4/1000062673.jpg" alt="Suncoin Admin">
+                    <img src="admin2.jpg" alt="Suncoin Admin">
                     <h3>Moderation: Suncoin</h3>
                     <p>Providing 24/7 support and moderation for the Suncoin official team community.</p>
                 </div>
                 <div class="card">
-                    <img src="https://i.postimg.cc/gJ0z654w/1000062672.jpg" alt="Odd Guy Admin">
+                    <img src="admin3.jpg" alt="Odd Guy Admin">
                     <h3>Moderation: Just A Odd Guy</h3>
                     <p>Active moderator ensuring healthy discussion and spam prevention.</p>
                 </div>
                 <div class="card">
-                    <img src="https://i.postimg.cc/T3C6z52b/1000062674.jpg" alt="KatsCo Admin">
+                    <img src="admin4.jpg" alt="KatsCo Admin">
                     <h3>Moderation: KatsCo</h3>
                     <p>Leadership role in community management, focusing on member growth.</p>
                 </div>
                 <div class="card">
-                    <img src="https://i.postimg.cc/3w6bS2g8/1000062232.jpg" alt="Strategy Chat">
+                    <img src="strategy.jpg" alt="Strategy Chat">
                     <h3>Strategy & Partnerships</h3>
                     <p>Collaborating with founders on core community values and growth ideas.</p>
-                </div>
-                <div class="card">
-                    <h3>Content Strategy</h3>
-                    <p>Educational deep dives and X threads focused on Web3 project analysis.</p>
-                    <a href="https://x.com/CybroX33/status/1970921621058879507" target="_blank" class="thread-link">Thread: Project Analysis →</a>
-                    <a href="https://x.com/CybroX33/status/1974031786020569351" target="_blank" class="thread-link">Thread: Community Insight →</a>
-                    <a href="https://x.com/CybroX33/status/1987082251901808778" target="_blank" class="thread-link">Thread: Web3 Education →</a>
                 </div>
             </div>
         </section>
         <section id="skills">
-            <h2 class="section-title">Services & Expertise</h2>
+            <h2 class="section-title">Expertise</h2>
             <div class="skills-grid">
                 <span class="skill-tag">🛡️ Community Moderation</span>
                 <span class="skill-tag">📱 Telegram & X Management</span>
                 <span class="skill-tag">✍️ Web3 Content Writing</span>
                 <span class="skill-tag">📈 Engagement Strategy</span>
-                <span class="skill-tag">🤝 Ambassador Programs</span>
             </div>
         </section>
         <footer>
-            <h2 style="font-size: 2rem; margin-bottom: 15px;">Let's build the future.</h2>
             <div class="contact-links">
                 <a href="https://x.com/CybroX33" target="_blank">Twitter/X</a>
                 <a href="https://t.me/Cybroxarc" target="_blank">Telegram</a>
-                <a href="mailto:cybroxx2@gmail.com">Email</a>
             </div>
             <p style="color: var(--muted); font-size: 1rem;">Discord: <span style="color: var(--text); font-weight: 600;">cybroxx3</span></p>
-            <p style="margin-top: 40px; font-size: 0.75rem; opacity: 0.4;">© 2025 Cybrox. Web3 Portfolio.</p>
         </footer>
     </div>
 </body>
